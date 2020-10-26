@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+
+To-Do: (In no certain order)
+ 1. Find or Create images to use for the parallax scrolling background
+ 2. Make Patterns & Lines project display
+ 3. Fix CSS Classes for CD Album (Misalignment & and other shit)
+
+-->
+
+<head>
+  <meta name="description" content="Webpage description goes here"/>
+  <meta charset="utf-8">
+  <title>Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  /*CSS goes here*/
+    body {
+      background-color:rgba(50,40,60,255);
+      color:rgba(93,168,99,255);
+      font:"Courier New";
+    }
+    .container > * {
+      display: inline-block;
+    }
+    div.sticky {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    .light-mode {
+      background-color: white;
+      color: rgba(50,40,60,255);
+    }
+    .vertical-center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      transform: translateX(-75%);
+    }
+    
+    .text-vert-center-l{
+      text-align: left;
+      margin: 0;
+      margin-right: 100px;
+      position: relative;
+      transform: translateY(-50%);
+    }
+    .text-vert-center-r{
+      text-align: left;
+      margin: 0;
+      margin-left: 100px;
+      position: relative;
+      transform: translateY(-50%);
+    }
+
+    .img-button{
+      background-color:rgba(50,40,60,255);
+      width: 554px;
+      height: 554px;
+      padding: 0px 0px 0px 0px;
+    }
+
+
+    
+    .bgimg-1{
+      background-image: url("images/backgrounds/room1_figures.png");
+      min-height: 400px;
+    } /*Janitor Room, temp image*/
+    
+    .bgimg-2{
+      background-image: url("images/backgrounds/speedcardBlur.gif");
+      min-height: 300px;
+    } /*Card gif*/
+    
+    .bgimg-3{
+      background-image: url("images/backgrounds/tiles.png");
+      min-height: 400px;
+    } /*Custom Tiles Pattern*/
+    
+    .bgimg-1, .bgimg-2, .bgimg-3{
+      /* Create the parallax scrolling effect */
+      position: relative;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    } /*Parallax*/
+  </style>
+</head>
+
+<!--
+
+How to do parallax scrolling:
+
+  Create new bg-imgX CSS class for each image,
+  everytime you want to have the effect add '<div class="bg-imgX"></div>'
+  x being the number you assigned (bg-img1, bg-img2, ect.)
+
+-->
+
+
+<body onload="splashText()">
+
+<!-- HTML goes here -->
+
+  <!--Navigation & Cosmetic Buttons-->
+  <div class="sticky">
+    <div class="containerHor">
+      <button id="darkmodeButton" onclick="darkmodeClick()">Toggle dark mode</button>
+      <button id="topButton" onclick="topButton();">Return to Top</button>
+    </div>
+    <div class="containerHor">
+      <button id="projects"><a href="school.html">Portfolio</a></button>
+      <button id="about"><a href="about.html">About Me</a></button>
+      <button id="indexButton"><a href="index.html">Index</a></button>
+    </div>
+  </div>
+  
+  <center>
+    <!--Header & Splashtext-->
+    <h1 style="font-size:40px;"><font face="Courier New">Title goes here (40px font size)</font></h1>
+    <div class="container">
+      <h3 id="splashText" color="color:rgba(0,0,0,0)"></h3>
+    </div>
+  </center>
+  
+    <!--Display of this quadmesters work-->
+    <div class="bgimg-1"></div>
+    <center>
+      <h1><font face="Courier New">Bouncing Card gif (Animated GIF project)</font></h1>
+      <div class="container">
+        <div class="text-vert-center-l">
+          <p style="font-size:28px;">
+                 <b>Project Name:</b> Animated GIF
+            <br> <b>Piece Name:</b>  Bouncing Card
+            <br> <b>Final Product Creation Date:</b> Sep. 29th 2020
+            <br> <b>Tools Used:</b> Photopea
+            <br>
+            <br> <b>Comment:</b>
+            <br> Originally I wanted to give the card a trail
+            <br> just like in the original Microsoft Solitare but
+            <br> I had so many frames photopea was barely working
+          </p>
+        </div>
+        <img id="cards" src="images/Cards_final_1.gif" alt="tempIcon.png" />
+      </div>
+    </center>
+      
+    <div class="bgimg-2"></div>
+    <center>
+      <h1><font face="Courier New">After Hours Cleaning (Expressive stick figures project)</font></h1>
+      <div class="container">
+        <div class="text-vert-center-l">
+          <p style="font-size:26px;">
+                 <b>Project Name:</b> Expressive Stickfigures
+            <br> <b>Piece Name:</b> After hours cleaning
+            <br> <b>Final Product Creation Date:</b> Sep. 30th 2020
+            <br> <b>Tools Used:</b> Photopea
+            <br>
+            <br> <b>Comment:</b>
+            <br> I created a psuedo-rig for the humanoid object.
+            <br> Originally I wanted this to be like, a secret
+            <br> lab after hours but I made it too complex.
+          </p>
+        </div>
+        <img id="janitor" src="images/r1f_display.png" alt="tempIcon.png" />
+      </div>
+    </center>
+
+    
+    <div class="bgimg-1"></div>
+    <center>
+      <h1><font face="Courier New">Patterns and Lines</font></h1>
+      <div class="container">
+        <button id="patternButton" class="img-button" onclick="patternButton()"><img id="lines" src="images/patterns/clickme.png" alt="tempIcon.png"/></button>
+        <div class="text-vert-center-r">
+          <p style="font-size:28px;">
+                 <b>Project Name:</b> Patterns and Lines
+            <br> <b>Final Product Creation Date:</b>
+            <br> <b>Tools Used:</b> Photopea
+            <br>
+            <br> <b> Comment: </b>
+            <br> I had a lot of fun designing weird looking
+            <br> patterns and designes with this one.
+            <br> I think I got a bit carried away with the
+            <br> optical illusions though.
+          </p>
+        </div>
+      </div>
+    </center>
+
+    <div class="bgimg-3"></div>
+    <center>
+      <h1><font face="Courier New">Ord's Kangaroo Rat | Feed on Dreams of Hope (CD Album Cover)</font></h1>
+      <div class="container">
+        <div class="text-vert-center-l">
+          <p style="font-size:24px;">
+                 <b>Project Name:</b> CD Album Cover
+            <br> <b>Piece Name:</b> Ord's Kangaroo Rat Album
+            <br> <b>Final Product Creation Date:</b> Oct. 19th 2020
+            <br> <b>Tools Used:</b> Photopea, Wikipedia, Flickr
+            <br>
+            <br> <b>Comment:</b>
+            <br> It took a few random articles before I
+            <br> got something I could use for the band name.
+            <br> Don't know whether I regret not going with
+            <br> <a href="https://en.wikipedia.org/wiki/Evil_Bong_3D%3A_The_Wrath_of_Bong">Evil Bong 3D: Wrath of Bong</a> though.
+          </p>
+        </div>
+        <img id="cd" src="images/cd_album.png" alt="tempIcon.png" />
+      </div>
+    </center>
+    
+    <div class="bgimg-1"></div>
+    
+    <!--Personal stuff like games, projects, ect.-->
+    
+    <!-- <h3>page bottom lol</h3> -->
+    <center>
+      <h1 style="font-size:40px;">
+        Personal Projects
+      </h1>
+    </center>
+
+
+  
+  <script>
+  // Javascript goes here
+  var img_num = 0;
+  var pattern_img = document.getElementById("lines");
+  
+  // Light/Dark mode toggle function
+  function toggleLight() {
+   var element = document.body;
+   element.classList.toggle("light-mode");
+  }
+  
+  // This function is called when you click the darkmode toggle button
+  function darkmodeClick(){
+    toggleLight();
+    splashText();
+  }
+  
+  // This function changes the splashtext
+  function splashText(){
+    var splash = document.getElementById("splashText");
+    var rng1 = Math.floor((Math.random() * 12) + 1);
+    
+    if (rng1 == 1)
+    {
+      splash.innerHTML = "Can you believe it's not butter?";
+    }
+    else if (rng1 == 2)
+    {
+      splash.innerHTML = "When the testing is finshed there'll be cake!";
+    }
+    else if (rng1 == 3)
+    {
+      splash.innerHTML = "Was that the bite of 87'?";
+    }
+    else if (rng1 == 4)
+    {
+      splash.innerHTML = "An Adventure is You!";
+    }
+    else if (rng1 == 5)
+    {
+      splash.innerHTML = "See you later, chimp chap";
+    }
+    else if (rng1 == 6)
+    {
+      splash.innerHTML = "It just works, it just works!";
+    }
+    else if (rng1 == 7)
+    {
+      splash.innerHTML = "Impending doom aproaches...";
+    }
+    else if (rng1 == 8)
+    {
+      splash.innerHTML = "Come along now Stanley, to adventure!";
+    }
+    else if (rng1 == 9)
+    {
+      splash.innerHTML = "I am a dwarf and I'm digging a hole!";
+    }
+    else if (rng1 == 10)
+    {
+      splash.innerHTML = "What a foul day, chasing water fowl away.";
+    }
+    else if (rng1 == 11)
+    {
+      splash.innerHTML = "Gravity's calling, I've got some falling to do!";
+    }
+    else if (rng1 == 12)
+    {
+      splash.innerHTML = "At the red lake, there's no exit";
+    }
+    else
+    {
+      splash.innerHTML = "When picking a number between one and twelve, you got thirteen!";
+    }
+  }
+  
+  // Compound function for both changing and updating image
+  function patternButton(){
+    patternDisplayChange();
+    patternDisplay();
+  }
+  
+  // This function changes the image on the paterns display
+  function patternDisplay(){
+    if (img_num == 0)
+    {
+      pattern_img.src = "images/patterns/clickme.png";
+    }
+    else if (img_num == 1)
+    {
+      pattern_img.src = "images/patterns/1.png";
+    }
+    else if (img_num == 2)
+    {
+      pattern_img.src = "images/patterns/2.png";
+    }
+    else if (img_num == 3)
+    {
+      pattern_img.src = "images/patterns/3.png";
+    }
+    else if (img_num == 4)
+    {
+      pattern_img.src = "images/patterns/4.png";
+    }
+    else if (img_num == 5)
+    {
+      pattern_img.src = "images/patterns/5.png";
+    }
+    else if (img_num == 6)
+    {
+      pattern_img.src = "images/patterns/6.png";
+    }
+  }
+  // This function changes which pattern gets displayed
+  function patternDisplayChange(){
+    //aaaa
+    if (img_num == 6)
+    {
+      img_num = 1;
+    }
+    else
+    {
+      img_num += 1;
+    }
+  }
+  
+  // Compund function for when the "Return to Top" button gets clicked
+  function topButton(){
+    document.documentElement.scrollTop = 0;
+    img_num = 0;
+    patternDisplay();
+  }
+  
+  </script>
+
+</body>
+</html>
