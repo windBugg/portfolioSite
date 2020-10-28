@@ -1,2 +1,2 @@
-# portfolioSite
-School thing
+# Portfolio Site
+School project thing
